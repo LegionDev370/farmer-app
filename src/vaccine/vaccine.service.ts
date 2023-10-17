@@ -79,12 +79,12 @@ export class VaccineService {
       const data = await this.vaccineModel.deleteOne({
         _id: id,
       });
-      if (!data) {
-        throw new NotFoundException('Vaccine not found');
+      if (data.deletedCount) {
+        return {
+          message: 'Vaccine deleted successfully',
+        };
       }
-      return {
-        message: 'Vaccine deleted successfully',
-      };
+      throw new NotFoundException('Vaccine not found');
     }
     throw new BadRequestException('Invalid id');
   }

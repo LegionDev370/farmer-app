@@ -1,4 +1,22 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateVaccinationHistoryDto } from './create-vaccination_history.dto';
+import { IsString, IsOptional } from 'class-validator';
 
-export class UpdateVaccinationHistoryDto extends PartialType(CreateVaccinationHistoryDto) {}
+export class UpdateVaccinationHistoryDto {
+  @IsString()
+  @IsOptional()
+  animal_id: string;
+  @IsString()
+  @IsOptional()
+  vaccine_type_id: string;
+  @IsString()
+  @IsOptional()
+  vaccinated_date: Date;
+  @IsString()
+  @IsOptional()
+  next_vaccination_date: Date;
+  @IsString()
+  @IsOptional()
+  vaccinate_photo: string;
+  @IsString()
+  @IsOptional()
+  worker_id: string;
+}

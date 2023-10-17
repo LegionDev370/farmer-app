@@ -12,6 +12,9 @@ import { VaccineModule } from './vaccine/vaccine.module';
 import { AnimalsModule } from './animals/animals.module';
 import { AnimalTypeModule } from './animal-type/animal-type.module';
 import { VaccinationHistoryModule } from './vaccination_history/vaccination_history.module';
+import { MeatProductionModule } from './meat_production/meat_production.module';
+import { FiberProductionModule } from './fiber_production/fiber_production.module';
+import { MilkProductionModule } from './milk_production/milk_production.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,6 +31,9 @@ import { VaccinationHistoryModule } from './vaccination_history/vaccination_hist
     AnimalsModule,
     AnimalTypeModule,
     VaccinationHistoryModule,
+    MeatProductionModule,
+    FiberProductionModule,
+    MilkProductionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
