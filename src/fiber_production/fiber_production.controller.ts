@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { FiberProductionService } from './fiber_production.service';
 import { CreateFiberProductionDto } from './dto/create-fiber_production.dto';
 import { UpdateFiberProductionDto } from './dto/update-fiber_production.dto';
 
 @Controller('fiber-production')
 export class FiberProductionController {
-  constructor(private readonly fiberProductionService: FiberProductionService) {}
+  constructor(
+    private readonly fiberProductionService: FiberProductionService,
+  ) {}
 
   @Post()
   create(@Body() createFiberProductionDto: CreateFiberProductionDto) {
@@ -19,16 +29,19 @@ export class FiberProductionController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.fiberProductionService.findOne(+id);
+    return this.fiberProductionService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFiberProductionDto: UpdateFiberProductionDto) {
-    return this.fiberProductionService.update(+id, updateFiberProductionDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateFiberProductionDto: UpdateFiberProductionDto,
+  ) {
+    return this.fiberProductionService.update(id, updateFiberProductionDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.fiberProductionService.remove(+id);
+    return this.fiberProductionService.remove(id);
   }
 }
